@@ -8,6 +8,7 @@ Module Module1
 		'
 		mySubAsync(10) ' запускается Task -> т.е. параллельная работа -) в консоле!
 		mySub(20) 'consoleEND 5 (из параллели пришел callback)
+		'т.е. после завершения task_и вызывающий поток прерывается и выполняет callback( часть после await )
 		Console.ReadLine()
 	End Sub
 	Private Sub mySub(ByVal x As Integer)
