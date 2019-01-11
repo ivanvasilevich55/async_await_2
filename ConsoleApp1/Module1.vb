@@ -6,8 +6,8 @@ Module Module1
 
 	Sub Main()
 		'
-		mySubAsync(10) ' запускается Task -> т.е. параллельная работа -) в консоле!
-		mySub(20) 'consoleEND 5 (из параллели пришел callback)
+		mySubAsync(8) ' запускается Task -> т.е. параллельная работа -) в консоле!
+		mySub(30) 'consoleEND 5 (из параллели пришел callback)
 		'т.е. после завершения task_и вызывающий поток прерывается и выполняет callback( часть после await )
 		Console.ReadLine()
 	End Sub
@@ -23,6 +23,7 @@ Module Module1
 		Await Task.Run(Sub()
 						   mySub(x)
 					   End Sub)
+		'( .net Обещает не выполнять 27 пока не завершится await)
 		Console.WriteLine("END>>>")
 
 	End Sub
